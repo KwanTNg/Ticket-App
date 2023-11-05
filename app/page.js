@@ -18,8 +18,15 @@ const getTickets = async () => {
 };
 
 const Dashboard = async () => {
-  const { tickets } = await getTickets();
+  const data = await getTickets();
   // we only want to get the categoey field from db, new Set use to remove duplication
+  // Make sure we have tickets needed for production build.
+  if (!data?.tickets) {
+    return <p>No tickets.</p>;
+  }
+
+  const tickets = data.tickets;
+
   const uniqueCategories = [
     ...new Set(tickets?.map(({ category }) => category)),
   ];
