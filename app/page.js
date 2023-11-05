@@ -11,7 +11,7 @@ const getTickets = async () => {
       }
     );
 
-    return res.json();
+    return res.json({});
   } catch (error) {
     console.log("Failed to get tickets", error);
   }

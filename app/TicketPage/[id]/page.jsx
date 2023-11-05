@@ -8,7 +8,7 @@ const getTicketById = async (id) => {
   if (!res.ok) {
     throw new Error("Failed to get ticket.");
   }
-  return res.json();
+  return res.json({});
 };
 
 const TicketPage = async ({ params }) => {
