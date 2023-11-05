@@ -3,7 +3,7 @@ import React from "react";
 
 const getTicketById = async (id) => {
   const res = await fetch(
-    `http://localhost:3000/api/Tickets/api/Tickets/${id}`,
+    `${process.env.NEXT_PUBLIC_URL}/api/Tickets/api/Tickets/${id}`,
     {
       cache: "no-store",
     }
@@ -11,7 +11,7 @@ const getTicketById = async (id) => {
   if (!res.ok) {
     throw new Error("Failed to get ticket.");
   }
-  return res.json({});
+  return res.json();
 };
 
 const TicketPage = async ({ params }) => {

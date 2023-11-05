@@ -4,14 +4,17 @@ import TicketCard from "./(components)/TicketCard";
 const getTickets = async () => {
   try {
     const res = await fetch(
-      // `${process.env.NEXT_PUBLIC_URL}/api/Tickets`,
-      "http://localhost:3000/api/Tickets",
+      `${process.env.NEXT_PUBLIC_URL}/api/Tickets`,
+      // "http://localhost:3000/api/Tickets",
       {
         cache: "no-store",
       }
     );
+    if (!res.ok) {
+      throw new Error("Failed to fetch topics");
+    }
 
-    return res.json({});
+    return res.json();
   } catch (error) {
     console.log("Failed to get tickets", error);
   }
