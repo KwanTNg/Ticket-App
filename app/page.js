@@ -24,7 +24,7 @@ const Dashboard = async () => {
   const data = await getTickets();
   // we only want to get the categoey field from db, new Set use to remove duplication
   // Make sure we have tickets needed for production build.
-  if (data.tickets.length === 0) {
+  if (!data?.tickets) {
     return <p>No tickets.</p>;
   }
 
